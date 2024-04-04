@@ -3,6 +3,8 @@ import { Form, useLoaderData } from "@remix-run/react"
 import { menu } from "~/data/menu.server"
 import { Image } from "@unpic/react"
 import { upsert } from "./upsert.server"
+import { card } from "~/styles/card"
+import { currencyFormatter } from "~/lib/formatters"
 
 export function loader() {
     return { menu }
@@ -15,11 +17,6 @@ export async function action({ request }: ActionFunctionArgs) {
 
     return null
 }
-
-const currencyFormatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-})
 
 export default function Menu() {
     let { menu } = useLoaderData<typeof loader>()
@@ -35,10 +32,7 @@ export default function Menu() {
                         </h2>
                         <ul role="list" className="grid grid-cols-3 gap-6 px-6">
                             {section.items.map(item => (
-                                <li
-                                    key={item.name}
-                                    className="col-span-1 flex flex-col divide-y divide-gray-200 overflow-hidden rounded-lg bg-white text-center shadow"
-                                >
+                                <li key={item.name} className={card({ className: "col-span-1" })}>
                                     <div className="flex flex-1 flex-col">
                                         {item.image.src && (
                                             <Image

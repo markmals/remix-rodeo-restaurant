@@ -17,13 +17,16 @@
         "@remix-run/react": "^2.8.1",
         "@remix-run/serve": "^2.8.1",
         "@unpic/react": "^0.1.11",
+        "cva": "^1.0.0-beta.1",
         "drizzle-orm": "^0.30.7",
         "isbot": "^4.1.0",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "tailwind-merge": "^2.2.2"
     },
     "devDependencies": {
         "@remix-run/dev": "^2.8.1",
+        "@tailwindcss/forms": "^0.5.7",
         "@types/react": "^18.2.20",
         "@types/react-dom": "^18.2.7",
         "autoprefixer": "^10.4.19",
