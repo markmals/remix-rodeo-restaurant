@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
 export async function loader(): Promise<{ cartCount?: number }> {
     let cartItems = await db.select().from(Cart)
 
-    if (!cartItems.length) return { cartCount: undefined }
+    if (!cartItems.length) return {}
 
     return {
         cartCount: cartItems

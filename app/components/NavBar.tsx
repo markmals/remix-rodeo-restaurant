@@ -11,7 +11,7 @@ export function NavBar() {
     let { cartCount } = useLoaderData<typeof loader>()
 
     return (
-        <header className="sticky top-0 border-b border-slate-300 bg-white">
+        <header className="sticky top-0 border-b border-black/15 bg-white">
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8"
                 aria-label="Global"

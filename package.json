@@ -4,7 +4,7 @@
     "type": "module",
     "scripts": {
         "dev": "remix vite:dev",
-        "db:bootstrap": "rm -rf ./app/data/sqlite.db; touch ./app/data/sqlite.db; drizzle-kit push:sqlite",
+        "db:bootstrap": "rm -rf ./app/data/local.db; touch ./app/data/local.db; drizzle-kit push:sqlite",
         "format": "prettier -w .",
         "build": "remix vite:build",
         "start": "remix-serve ./build/server/index.js"
@@ -12,11 +12,11 @@
     "dependencies": {
         "@headlessui/react": "^1.7.18",
         "@heroicons/react": "^2.1.3",
+        "@libsql/client": "^0.6.0",
         "@remix-run/node": "^2.8.1",
         "@remix-run/react": "^2.8.1",
         "@remix-run/serve": "^2.8.1",
         "@unpic/react": "^0.1.11",
-        "better-sqlite3": "^9.4.5",
         "drizzle-orm": "^0.30.7",
         "isbot": "^4.1.0",
         "react": "^18.2.0",
@@ -24,7 +24,6 @@
     },
     "devDependencies": {
         "@remix-run/dev": "^2.8.1",
-        "@types/better-sqlite3": "^7.6.9",
         "@types/react": "^18.2.20",
         "@types/react-dom": "^18.2.7",
         "autoprefixer": "^10.4.19",
