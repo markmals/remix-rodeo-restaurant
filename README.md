@@ -1,36 +1,19 @@
-# Welcome to Remix + Vite!
+# 💿 Remix Rodeo 🤠 April 2024
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/future/vite) for details on supported features.
+This is a sample restaurnt app I built with Remix for the [Remix Rodeo hackathon](https://remix-austin.github.io/remix-rodeo-april) at the [Remix Austin meetup](https://remixaustin.com) in April of 2024.
+
+It uses [Drizzle with a local SQLite database](https://orm.drizzle.team/docs/get-started-sqlite#better-sqlite3) for persistance and [Tailwind UI](https://tailwindui.com) for the UI components.
 
 ## Development
 
-Run the Vite dev server:
+First, bootstrap the local SQLite database:
 
-```shellscript
+```sh
+npm run db:bootstrap
+```
+
+Then, run the Vite dev server:
+
+```sh
 npm run dev
 ```
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
