@@ -4,7 +4,7 @@ import { menu } from "~/data/menu.server"
 import { Cart } from "~/data/schema.server"
 
 export async function upsert(id: string) {
-    let cartItems = await db.select().from(Cart)
+    let cartItems = await db.query.cart.findMany()
     let menuItem = menu
         .map(section => section.items)
         .flat()

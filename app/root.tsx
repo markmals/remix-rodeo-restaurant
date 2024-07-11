@@ -3,7 +3,6 @@ import { NavBar } from "./components/NavBar"
 import type { LinksFunction, MetaFunction } from "@remix-run/node"
 import stylesheet from "~/styles/style.css?url"
 import { db } from "./data/db.server"
-import { Cart } from "./data/schema.server"
 
 export const links: LinksFunction = () => [
     { rel: "stylesheet", href: stylesheet },
@@ -15,7 +14,7 @@ export const meta: MetaFunction = () => {
 }
 
 export async function loader(): Promise<{ cartCount?: number }> {
-    let cartItems = await db.select().from(Cart)
+    let cartItems = await db.query.cart.findMany()
 
     if (!cartItems.length) return {}
 

@@ -1,6 +1,5 @@
 import { useLoaderData } from "@remix-run/react"
 import { db } from "~/data/db.server"
-import { Cart } from "~/data/schema.server"
 import { currencyFormatter } from "~/lib/formatters"
 import { card } from "~/styles/card"
 import { QuestionMarkCircleIcon, XMarkIcon } from "@heroicons/react/20/solid"
@@ -8,7 +7,7 @@ import { QuestionMarkCircleIcon, XMarkIcon } from "@heroicons/react/20/solid"
 const orderOptions = ["Pickup", "Delivery"]
 
 export async function loader() {
-    let cartItems = await db.select().from(Cart)
+    let cartItems = await db.query.cart.findMany()
     return { cartItems }
 }
 
@@ -89,7 +88,7 @@ export default function CartPage() {
                                                     <select
                                                         id={`quantity-${item.id}`}
                                                         name={`quantity-${item.id}`}
-                                                        value={item.count}
+                                                        defaultValue={item.count}
                                                         className="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                                                     >
                                                         <option value={1}>1</option>
